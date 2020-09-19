@@ -4,9 +4,13 @@
       <i class="material-icons">volume_up</i>
     </div>
     <vue-slider 
-      width="100px"
-      height="8px"
-    />
+      class="volume-bar__slider"
+      v-model="volume"
+      :dot-size="20"
+      :process-style="{ backgroundColor: '#1db954' }"
+      width="120px"
+      height="6px"
+    ></vue-slider>
   </div>
 </template>
 
@@ -15,6 +19,11 @@
   import 'vue-slider-component/theme/antd.css'
   export default {
     name: "volume-bar",
+    data() {
+      return {
+        volume: 50,
+      };
+    },    
     components: {
       VueSlider
     }
@@ -36,11 +45,7 @@
     }
   }
   &__slider {
-    width: 100px;
-    height: 8px;
-    background: #1db954;
     margin-top: -4px;
-    border-radius: 10px;
   }
 }
 </style>
